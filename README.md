@@ -107,6 +107,13 @@ Run:
 python eda.py
 ```
 
+## Note: `preflight-ml` GitHub Action (optional)
+I also built **preflight-ml**, a GitHub Action for running fast “pre-flight” checks on **PyTorch** training pipelines to catch silent failures (NaNs/Infs, leakage, shape mismatch) before expensive training runs.
+
+- Action page: `https://github.com/marketplace/actions/preflight-ml`
+- In this repo it’s wired as a **manual** workflow (`.github/workflows/preflight-ml.yml`) because this Task 0 project is a batch signal job (not a training loop).
+- Why it matters: it’s the same MLOps principle as this project’s strict validation + metrics—**fail fast** and produce clear diagnostics before you waste compute/time.
+
 ## Files included
 - `run.py`
 - `config.yaml`

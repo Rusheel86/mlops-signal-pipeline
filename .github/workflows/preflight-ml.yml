@@ -1,0 +1,18 @@
+name: preflight-ml (optional)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # This repo is a batch signal pipeline (not a PyTorch training pipeline),
+      # so this workflow is intentionally manual/optional.
+      - name: Run pre-flight checks (preflight-ml)
+        uses: Rusheel86/preflight@v0.1.1
+        with:
+          dataloader: scripts/preflight_example_dataloader.py
+
